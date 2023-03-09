@@ -61,10 +61,11 @@ const date = new Date(parseInt(id));
  `
 };
 
+// here we convert Json to string(for local storage)
 const updateLocalStorage = () =>
 {
    localStorage.setItem(
-      "taky",
+      "task",
       JSON.stringify({
          tasks: state.taskList,
       })
@@ -72,4 +73,29 @@ const updateLocalStorage = () =>
 };
 
 //load initial data
-//
+//here we convert back from string to Json(for rendering the cards on the screen)
+const loadInitialData = () =>{
+   const localStorageCopy = JSON.parse(localStorage.tasks);
+
+   if(localStorageCopy)
+   {
+      state.taskList = localStorageCopy.tasks;
+   }
+  
+   state.taskList.map((cardDate)=>{
+      taskContents.innerAdjacentHTML("beforeend",htmlTaskContent(cardDate));
+   })
+};
+
+//when we update/edit... we need to save
+const handleSubmit = (event) =>{
+const id = `${Date.now()}`;
+const input = {
+   url : document.getElementById("imageUrl").value,
+  title: document.getElementById("taskTitle").value,
+  tags: document.getElementById("tags").value,
+  taskDescription: document.getElementById("taskDesc").value,
+};
+taskContents.innerAdjacentHTML("beforeend",htmlTaskContent({...input,id}));
+
+};
