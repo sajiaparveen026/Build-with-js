@@ -20,27 +20,6 @@
     />
   </head>
   <body onload="loadInitialData()">
-    <!-- <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#showTask"
-    >
-      Launch demo modal
-    </button> -->
-
-    <!-- Btn on Small Screen Size -->
-    <div class="add__new__btn__mobile__only d-md-none">
-      <button
-        class="btn btn-primary d-flex align-items-center gap-3"
-        type="submit"
-        data-bs-toggle="modal"
-        data-bs-target="#addNewModal"
-      >
-        <i class="fa-light fa-plus mr-4"></i> Add New Item
-      </button>
-    </div>
-
     <!-- Add New Item Modal -->
     <div
       class="modal fade"
@@ -70,7 +49,7 @@
                   class="form-control"
                   id="imageUrl"
                   aria-describedby="imageDesc"
-                  placeholder="https://rohan.com/image.png"
+                  placeholder="https://google.com/image.png"
                 />
                 <div id="imageDesc" class="form-text">
                   Its a optional filed for you...
@@ -84,7 +63,7 @@
                   type="text"
                   class="form-control"
                   id="taskTitle"
-                  placeholder="Task Title!"
+                  placeholder="Give The Title Here"
                   required
                 />
               </div>
@@ -96,7 +75,7 @@
                   type="text"
                   class="form-control"
                   id="tags"
-                  placeholder="Task Type!"
+                  placeholder="Work!"
                   required
                 />
               </div>
@@ -110,7 +89,7 @@
                   type="text"
                   class="form-control"
                   id="taskDescription"
-                  placeholder="Task Description..."
+                  placeholder="Explain Something about it..."
                   required
                   rows="3"
                 ></textarea>
@@ -176,7 +155,7 @@
     <!-- nav bar -->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">J0123P2-Build</a>
+        <a class="navbar-brand" href="#">Build Task</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -201,7 +180,7 @@
             data-bs-toggle="modal"
             data-bs-target="#addNewModal"
           >
-            <i class="fa-light fa-plus mr-4"></i> Add New Item
+            <i class="fa-light fa-plus mr-4"></i> Add New 
           </button>
         </div>
       </div>
@@ -219,6 +198,7 @@
                 placeholder="Search Your Task Here.."
                 aria-label="Search Task"
                 aria-describedby="addon-wrapping"
+                oninput="searchTask.apply(this,arguments)"
               />
               <span class="input-group-text" id="addon-wrapping">
                 <i class="fas fa-search"></i>
